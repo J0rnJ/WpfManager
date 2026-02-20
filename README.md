@@ -39,22 +39,32 @@ Reusable overlay popups for:
 ---
 
 ## 🧱 Project Structure
+```
 TaskManager/
 │
-├── Models/               # Data objecten
-├── ViewModels/           # MVVM ViewModels
-│   ├── TaskItem/         # TaskItem VM's
-│   ├── Popups/           # Popup VM's
-│   └── MainViewModel.cs
+├── Models/                      # Data objects (TaskItem, etc.)
 │
-├── Views/                # XAML Views
-│   ├── TaskItem/
-│   ├── Popups/
-│   └── MainView.xaml
+├── ViewModels/                  # All ViewModels
+│   ├── TaskItem/                # TaskItemViewModel, TaskItemEditViewModel, TaskItemCreateViewModel
+│   ├── Popups/                  # Popup ViewModels (ConfirmDeleteViewModel, etc.)
+│   └── MainViewModel.cs         # Main application ViewModel
 │
-├── Services/             # Repository & toekomstige DialogService
-├── Resources/            # Brushes, Colors, Styles
-└── App.xaml
+├── Views/                       # All XAML Views
+│   ├── TaskItem/                # TaskItemView, TaskItemEditView, TaskItemCreateView
+│   ├── Popups/                  # ConfirmDeleteView, etc.
+│   └── MainView.xaml            # Main window
+│
+├── Services/                    # Repository
+│   ├── ITaskRepository.cs
+│   ├── JsonTaskRepository.cs
+│
+├── Resources/                   # Brushes, Colors, Styles, Templates
+│   ├── Brushes.xaml
+│   ├── Colors.xaml
+│   ├── Styles.xaml
+│
+└── App.xaml                     # Application entry point
+```
 
 ---
 
@@ -74,6 +84,7 @@ TaskManager/
 1. Clone the repository  
    ```bash
    git clone https://github.com/<your-username>/TaskManager.git
+   ```
 
 2. Open the solution in Visual Studio
 3. Build & run
