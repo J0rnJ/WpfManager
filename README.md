@@ -83,7 +83,7 @@ TaskManager/
 
 1. Clone the repository  
    ```bash
-   git clone https://github.com/<your-username>/TaskManager.git
+   git clone https://github.com/J0rnJ/WpfManager
    ```
 
 2. Open the solution in Visual Studio
