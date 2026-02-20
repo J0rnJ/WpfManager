@@ -1,4 +1,4 @@
-# 📝 TaskManager  
+# 📝 WpfManager - TaskManager  
 A modern, modular WPF application built with a strong focus on **MVVM**, **clean architecture**, **reusable UI components**, and a **sleek dark theme**.
 
 TaskManager provides an elegant way to manage tasks — including creating, editing, completing, and deleting — all within a consistent, modern, and extensible UI.
