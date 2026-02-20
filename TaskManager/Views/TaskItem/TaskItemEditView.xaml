@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="TaskManager.Views.TaskItem.TaskItemEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fa="http://schemas.fontawesome.io/icons/">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <!-- Title -->
+        <TextBlock Text="Edit Task" Style="{StaticResource HeaderTextStyle}" />
+        
+        <!-- Input Fields -->
+        <StackPanel Grid.Row="1" Margin="0 0 0 20">
+            <TextBlock Text="Title" Style="{StaticResource TitleTextStyle}" />
+            <TextBox Text="{Binding Title}" Style="{StaticResource PopupTextBoxStyle}"
+                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
+                     TextWrapping="NoWrap"/>
+
+            <TextBlock Text="Description" Style="{StaticResource TitleTextStyle}" />
+            <TextBox Text="{Binding Description}" Style="{StaticResource PopupTextBoxStyle}"
+                     AcceptsReturn="True" Height="80" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"/>
+
+            <CheckBox IsChecked="{Binding IsCompleted}" Style="{StaticResource FancyCheckboxStyle}">
+                <CheckBox.Template>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:FontAwesome Icon="{Binding IsChecked, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CompletedToIconConverter}}" FontSize="24" Foreground="{Binding IsChecked, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CompletedToColorConverter}}"/>
+                            <TextBlock Text="Completed" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </CheckBox.Template>
+            </CheckBox>
+        </StackPanel>
+        
+        <!-- Buttons -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancel" Style="{StaticResource PopupButtonStyle}"
+                    Command="{Binding CancelCommand}" />
+
+            <Button Content="Save" Style="{StaticResource PopupButtonStyle}"
+                    Command="{Binding SaveCommand}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

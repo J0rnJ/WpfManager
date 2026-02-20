@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="TaskManager.Views.TaskListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:TaskManager.Views"
+             xmlns:taskItemViewModels="clr-namespace:TaskManager.ViewModels.TaskItem"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <Grid Background="{StaticResource Brush.BackgroundDark}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />     <!-- Header + Toolbar -->
+            <RowDefinition Height="*" />        <!-- List -->
+        </Grid.RowDefinitions>
+        
+        <!-- Header + Toolbar -->
+        <DockPanel Grid.Row="0" Margin="20, 10, 20, 10">
+
+            <!-- Toolbar Right-->
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Right"
+                        VerticalAlignment="Center">
+                <Button Content="Add Task"
+                        Command="{Binding AddTaskCommand}"
+                        Style="{StaticResource PrimaryButtonStyle}" />
+
+                <!--<Button Content="Remove Task"
+                        Command="{Binding RemoveTaskCommand}"
+                        Style="{StaticResource PrimaryButtonStyle}" />
+
+                <Button Content="Toggle Task Completed"
+                        Command="{Binding ToggleCompletedCommand}"
+                        Style="{StaticResource PrimaryButtonStyle}" />-->
+            </StackPanel>
+
+            <!-- Header Left-->
+            <TextBlock Text="Tasks" 
+                       Style="{StaticResource HeaderTextStyle}" 
+                       VerticalAlignment="Center" />
+        </DockPanel>
+
+        <!-- Task List -->
+        <ListBox Grid.Row="2" 
+                 ItemsSource="{Binding Tasks}" 
+                 SelectedItem="{Binding SelectedTask, Mode=TwoWay}" 
+                 ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type taskItemViewModels:TaskItemViewModel}">
+                    <Grid Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Title + Description -->
+                        <StackPanel>
+                            <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextStyle}" />
+
+                            <TextBlock Text="{Binding Description}" Style="{StaticResource DescriptionTextStyle}" Margin="0, 4, 0, 0" />
+
+                            <!--<TextBlock Text="{Binding IsCompleted, Converter={StaticResource BooleanToCompletedTextConverter}}"
+                                       Style="{StaticResource StatusTextStyle}" Margin="0, 4, 0, 0"/>-->
+                        </StackPanel>
+
+                        <!-- Icon Buttons -->
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 24 0">
+                            <!-- Toggle Completed -->
+                            <Button Command="{Binding ToggleCompletedCommand}" Style="{StaticResource IconButtonStyle}" Margin="0 0 24 0">
+                                <fa:FontAwesome Icon="{Binding IsCompleted, Converter={StaticResource CompletedToIconConverter}}" Foreground="{Binding IsCompleted, Converter={StaticResource CompletedToColorConverter}}" />
+                            </Button>
+                            <!-- Edit -->
+                            <Button Command="{Binding EditCommand}" Style="{StaticResource IconButtonStyle}" Margin="0 0 24 0">
+                                <fa:FontAwesome Icon="Edit" />
+                            </Button>
+                            <!-- Delete -->
+                            <Button Command="{Binding DeleteCommand}" Style="{StaticResource IconButtonStyle}">
+                                <fa:FontAwesome Icon="Trash" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

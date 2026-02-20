@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Dark base colors-->
+    <Color x:Key="Color.BackgroundDark">#0F1A1F</Color>
+    <Color x:Key="Color.PanelDark">#11252B</Color>
+    <Color x:Key="Color.PanelDarker">#1A2F36</Color>
+    <Color x:Key="Color.BackgroundFrosted">#40FFFFFF</Color>
+    <Color x:Key="Color.BackgroundPopup">#182A31</Color>
+    
+    <!-- Accent colors (inspired by your hexagon/circuit look) -->
+    <Color x:Key="Color.AccentBlue">#A0E8FF</Color>
+    <Color x:Key="Color.AccentGreen">#6AFF9A</Color>
+    
+    <!-- Text colors -->
+    <Color x:Key="Color.TextPrimary">#FFFFFF</Color>
+    <Color x:Key="Color.TextSecondary">#D0D0D0</Color>
+
+</ResourceDictionary>
