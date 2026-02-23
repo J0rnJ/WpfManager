@@ -7,9 +7,9 @@ TaskManager provides an elegant way to manage tasks — including creating, edit
 
 ## 🖼 Screenshots
 
-![Main View](Screenshot/Main_Screen.png)
-![Add Popup](Screenshot/Add_Screen.png)
-![Edit Popup](Screenshot/Edit_Screen.png)
+![Main View](TaskManager/Screenshot/Main_Screen.png)
+![Add Popup](TaskManager/Screenshot/Add_Screen.png)
+![Edit Popup](TaskManager/Screenshot/Edit_Screen.png)
 
 ---
 
